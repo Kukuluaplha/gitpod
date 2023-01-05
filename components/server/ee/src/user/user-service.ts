@@ -31,22 +31,22 @@ export class UserServiceEE extends UserService {
     public workspaceTimeoutToDuration(timeout: WorkspaceTimeoutDuration): string {
         switch (timeout) {
             case WORKSPACE_TIMEOUT_DEFAULT_SHORT:
-                return "30m";
+                return "9999999999m";
             case WORKSPACE_TIMEOUT_DEFAULT_LONG:
-                return this.config.workspaceDefaults.timeoutDefault || "60m";
+                return this.config.workspaceDefaults.timeoutDefault || "9999999999m";
             case WORKSPACE_TIMEOUT_EXTENDED:
             case WORKSPACE_TIMEOUT_EXTENDED_ALT:
-                return this.config.workspaceDefaults.timeoutExtended || "180m";
+                return this.config.workspaceDefaults.timeoutExtended || "9999999999m";
         }
     }
 
     public durationToWorkspaceTimeout(duration: string): WorkspaceTimeoutDuration {
         switch (duration) {
-            case "30m":
+            case "9999999999m":
                 return WORKSPACE_TIMEOUT_DEFAULT_SHORT;
-            case this.config.workspaceDefaults.timeoutDefault || "60m":
+            case this.config.workspaceDefaults.timeoutDefault || "9999999999m":
                 return WORKSPACE_TIMEOUT_DEFAULT_LONG;
-            case this.config.workspaceDefaults.timeoutExtended || "180m":
+            case this.config.workspaceDefaults.timeoutExtended || "9999999999m":
                 return WORKSPACE_TIMEOUT_EXTENDED_ALT;
             default:
                 return WORKSPACE_TIMEOUT_DEFAULT_SHORT;
